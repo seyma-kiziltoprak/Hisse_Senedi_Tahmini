@@ -1,0 +1,22 @@
+   // Yeni tahmin için bir Instance (veri örneği) oluştur
+                // Bu örnek, modelin eğitildiği veri setiyle aynı formatta olmalı
+                // Modelin eğitildiği veri setinin yapısını kullanıyoruz
+                // Tahmin için bir veri örneği oluştur
+                ArrayList<Attribute> attributes = new ArrayList<>();
+                attributes.add(new Attribute("Open"));
+                attributes.add(new Attribute("High"));
+                attributes.add(new Attribute("Low"));
+                attributes.add(new Attribute("Vol"));
+                attributes.add(new Attribute("Price"));
+
+                Instances newInstance = new Instances("PredictionInstance", attributes, 0);
+                newInstance.setClassIndex(newInstance.numAttributes() - 1);
+
+                DenseInstance instance = new DenseInstance(newInstance.numAttributes());
+                instance.setValue(attributes.get(0), open);
+                instance.setValue(attributes.get(1), high);
+                instance.setValue(attributes.get(2), low);
+                instance.setValue(attributes.get(3), vol);
+                instance.setMissing(attributes.get(4)); // Fiyat değerini boş bırak
+
+                instance.setDataset(newInstance);
