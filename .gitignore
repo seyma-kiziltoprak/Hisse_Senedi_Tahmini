@@ -36,3 +36,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+# Kodun ürettiği çıktı dosyaları
+predictions.txt
+
+# Veri setleri (eğer büyükse veya paylaşmak istemiyorsanız)
+aselsan_data.arff
